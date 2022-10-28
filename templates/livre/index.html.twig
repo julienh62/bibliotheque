@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Livres!{% endblock %}
+
+{% block body %}
+
+    <section>
+
+    <h1> Mon livre préféré </h1>
+    <h2> {{ books[0].title }}</h2>
+
+    <h1> La liste des livres en détails</h1>
+    <div class="list-groupe-livre-dvd-auteur">
+<ul>
+    <li><a href="?display=full">Version complete</a></li>
+    <li><a href="?display=short">Version courte</a></li>
+</ul>
+
+
+    {% for book in books %}
+        {#          {{ dump(book) }}#}
+        <ul class="list-groupe">
+
+            <li class="list-groupe-item">  <a href="{{ path('show_livre',{'id':book.id}) }}">    {{ book.title }}</a></li>
+
+            {% if mode == 'full' %}
+                <ul>
+                    <li>{{ book.cote }}</li>
+                    <li>{{ book.avalaible }}</li>
+                </ul>
+
+
+
+            {% endif %}
+        </ul>
+
+
+        {#            <li class="list-group-item">volume : {{ book.volume }}</li>#}
+            {#            <li class="list-group-item">nombre de page : {{ book.nbrPage }}</li>#}
+            {#            <li class="list-group-item">nom : {{ book.name }}</li>#}
+            {#            <li class="list-group-item">disponibilité : {{ book.avalaible }}</li>#}
+
+
+    {% endfor %}
+
+
+    </div>
+  </section>
+{% endblock %}

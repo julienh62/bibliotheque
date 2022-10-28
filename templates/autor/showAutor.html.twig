@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}show auteur{% endblock %}
+
+{% block body %}
+
+    <ul class="list-groupe">
+        <li class="list-group-item  ">  Nom de l'auteur : {{ autor.name }}</li>
+        <li class="list-group-item "> Biographie : {{ autor.bio }}</li>
+        <li class="list-group-item "> Date de naissance: {{ autor.birth | date('d/m/Y')}}
+            à  {{ autor.birth | date('H:i')}}</li>
+
+
+    </ul>
+
+
+
+
+
+{% endblock %}

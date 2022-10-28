@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} user!{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Liste de tous les users </h1>
+        <div class="list-groupe-livre-dvd-auteur">
+
+            {% for user in users %}
+                {#          {{ dump(book) }}#}
+                <ul class="list-groupe">
+{#                    <li class="list-groupe-item">  <a href="{{ path('show_dvd',{'id':dvd.id}) }}">    {{ dvd.name }}</a></li>#}
+              <li>{{ user.lastName }}</li>
+
+                </ul>
+
+            {% endfor %}
+
+        </div>
+    </section>
+{% endblock %}

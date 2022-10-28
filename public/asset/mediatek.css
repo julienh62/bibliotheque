@@ -1,0 +1,34 @@
+.container {
+    max-width: 2000px;
+}
+
+.autorlivre {
+    background-color: #9fcdff;
+}
+.list-groupe-item {
+    padding: 1rem;
+    list-style-type:none;
+    font-size:2rem;
+    min-width: 230px;
+}
+.list-groupe-livre-dvd-auteur {
+    display:flex;
+    flex-wrap: wrap;
+}
+.list-groupe-item a {
+    color: #0b2e13;
+    font-size:20px;
+}
+.list-groupe-item a font {
+
+}
+
+.navbar {
+    --bs-navbar-padding-x: 1rem;
+}
+a.nav-link {
+    font-size:2rem;
+}
+a.navbar-brand {
+    font-size:3rem;
+}

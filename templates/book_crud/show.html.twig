@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book{% endblock %}
+
+{% block body %}
+    <h1>Book</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ book.id }}</td>
+            </tr>
+            <tr>
+                <th>Cote</th>
+                <td>{{ book.cote }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ book.name }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ book.type ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Avalaible</th>
+                <td>{{ book.avalaible ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Borrowable</th>
+                <td>{{ book.borrowable ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ book.description }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ book.createdAt ? book.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Volume</th>
+                <td>{{ book.volume }}</td>
+            </tr>
+            <tr>
+                <th>NbrPage</th>
+                <td>{{ book.nbrPage }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ book.title }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_book_crud_index') }}">back to list</a>
+
+    <a href="{{ path('app_book_crud_edit', {'id': book.id}) }}">edit</a>
+
+    {{ include('book_crud/_delete_form.html.twig') }}
+{% endblock %}

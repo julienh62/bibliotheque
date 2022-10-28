@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DvdController!{% endblock %}
+
+{% block body %}
+    <section>
+    <h1>Liste de tous les DVDS </h1>
+    <div class="list-groupe-livre-dvd-auteur">
+
+      {% for dvd in dvds %}
+        {#          {{ dump(book) }}#}
+        <ul class="list-groupe">
+            <li class="list-groupe-item">  <a href="{{ path('show_dvd',{'id':dvd.id}) }}">    {{ dvd.name }}</a></li>
+            {#            <li class="list-group-item">volume : {{ book.volume }}</li>#}
+            {#            <li class="list-group-item">nombre de page : {{ book.nbrPage }}</li>#}
+            {#            <li class="list-group-item">nom : {{ book.name }}</li>#}
+            {#            <li class="list-group-item">disponibilité : {{ book.avalaible }}</li>#}
+        </ul>
+
+       {% endfor %}
+
+      </div>
+    </section>
+{% endblock %}

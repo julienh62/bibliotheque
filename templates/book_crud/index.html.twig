@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book index{% endblock %}
+
+{% block body %}
+    <h1>Book index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cote</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Avalaible</th>
+                <th>Borrowable</th>
+                <th>Description</th>
+                <th>CreatedAt</th>
+                <th>Volume</th>
+                <th>NbrPage</th>
+                <th>Title</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.cote }}</td>
+                <td>{{ book.name }}</td>
+                <td>{{ book.type ? 'Yes' : 'No' }}</td>
+                <td>{{ book.avalaible ? 'Yes' : 'No' }}</td>
+                <td>{{ book.borrowable ? 'Yes' : 'No' }}</td>
+                <td>{{ book.description }}</td>
+                <td>{{ book.createdAt ? book.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ book.volume }}</td>
+                <td>{{ book.nbrPage }}</td>
+                <td>{{ book.title }}</td>
+                <td>
+                    <a href="{{ path('app_book_crud_show', {'id': book.id}) }}">show</a>
+                    <a href="{{ path('app_book_crud_edit', {'id': book.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_book_crud_new') }}">Create new</a>
+{% endblock %}

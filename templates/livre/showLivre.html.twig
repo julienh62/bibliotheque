@@ -1,0 +1,43 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Notice{% endblock %}
+
+{% block body %}
+    <section>
+
+                <h2> {{ book.title }}</h2>
+                <p>Nom et biographie de l'auteur</p>
+        <ul class="list-groupe">
+            <li class="list-group-item">  titre : {{ book.title }}</li>
+            <li class="list-group-item">volume : {{ book.volume }}</li>
+            <li class="list-group-item">nombre de page : {{ book.nbrPage }}</li>
+            <li class="list-group-item">nom : {{ book.name }}</li>
+            <li class="list-group-item">disponibilité : {{ book.avalaible }}</li>
+            <li class="list-group-item">crée le : {{ book.createdAt | date('d/m/Y')}}
+                à  {{ book.createdAt | date('H:i')}}</li>
+        </ul>
+
+
+        <div class="autorlivre">
+            <h2>Nom de l'auteur ou des auteurs : </h2>
+            {% for autor in book.autors %}
+                {{ autor.name }}
+            {% endfor %}
+        </div>
+
+
+        {% for a in book.autors %}
+            <article>
+
+                {{ 'Nom   : '  ~ a.name ~ ' , Biographie  : ' ~a.bio }}
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}
+{% block aside %}
+    {{ render(controller('App\\Controller\\LivreController::showLivreByAutor',
+        {autor: book.autors[0]})) }}
+{% endblock %}
+

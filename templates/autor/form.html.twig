@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{#{% form_theme form 'bootstrap_5_layout.html.twig' %}#}
+ou en ajoutant boostrap layout dans package/config/twig.yaml
+{% block title %}form{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Formulaire </h1>
+        {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.bio) }}
+        {{ form_row(form.birth) }}
+        {{ form_row(form.save) }}
+        {{ form_end(form) }}
+
+    </section>
+{% endblock %}
+

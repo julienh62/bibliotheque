@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}show livre{% endblock %}
+
+{% block body %}
+
+
+    <ul class="list-groupe">
+        <li class="list-group-item">  tracks : {{ dvd.tracks }}</li>
+        <li class="list-group-item">durée en minutes : {{ dvd.duration | date('H:i') }}</li>
+        <li class="list-group-item">nom : {{ dvd.name }}</li>
+        <li class="list-group-item">disponibilité : {{ dvd.avalaible }}</li>
+        <li class="list-group-item">description : {{ dvd.description }}</li>
+
+    </ul>
+
+
+
+{% endblock %}
